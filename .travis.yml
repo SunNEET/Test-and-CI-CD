@@ -1,13 +1,13 @@
 language: ruby
 rbenv:
-- 2.3.0
+  - 2.3.0
 before_script:
-- bundle exec rake db:create --all
-- bundle exec rake db:migrate
+  - bundle exec rake db:create --all
+  - bundle exec rake db:migrate
 script:
-- bundle exec rake ci:tests
+  - bundle exec rake ci:tests
 services:
-- postgresql
+  - postgresql
 notifications:
   email: false
 deploy:
@@ -15,9 +15,9 @@ deploy:
   api_key:
     secure: dtTsUu3PcgO97A6vr2h80+KqEPPeELj8QR4uqdqvCsbxDUs+y0j9WvcriX34D2kNABG4FeCNVXmiMjD0IoB24uljqcjPU2vQ/XRci2F1Km9gWLdhW1x8/p1VhP2uMJseYiPZF9q2sZxy9AH7q0v7LaO1xLQmfkc+i1GX3dMq/79KKLSy1rYejMjTr2tFntfBfQ0B1iDtgb0OG5mEEnBuwObUfpeUIS60zsuqztSAVOo2yzijhX5N0iO2WXhoBb9RiM1yXAV9iPNIswr5fkgxs6GK6F+m/TiQRi98j6G+0PaWAFZjlONOZHCqa2bMYX4oEYKkXynVDZE2cx9yBjJKfi8Vw4N3yepDT9HPAfUDIW41eXfd0xDRimn4FDBeUV2VvLDtvsbFUDJt9X9SkwTCO6haPcS1xD54YSTkJt+ZFU8z5/MSlK90KSxUm5R+OVces+OpgvE3eUEdQjGiNRENmmFY0o8AvpxB+LWF5pdXOOx4VvDo2o+9OKY8vSsROSagH/mUz61ha8HweoJJLoHFHW/PoilPOTV/C+EHIVI3CR62x/AkkNJzMeSpa+m0Q6BNHtHi21IOW4ZhYHFS6UrvrDLhWeDcRrvAdfD9DBEmqQQWlVX1ASRT7BFggb41hv8T2Y7KjWAzE9GqvYhkrkoKRgvMQe4hg5lz+WfOLaYe7wY=
   app:
-	  develop: test-and-ci-cd
-		master: test-and-ci-cd-production
+    develop: test-and-ci-cd
+    master: test-and-ci-cd-production
   on:
-	  repo: SunNEET/Test-and-CI-CD
+    repo: SunNEET/Test-and-CI-CD
   run:
-	  - "rails db:migrate"
+    - "rails db:migrate"
